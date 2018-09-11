@@ -8,8 +8,8 @@ The main challenge is to implement the backend fot a simple todo list.
 The only model object is the `TODO` as shown bellow:
 ```json
 TODO {
-  "id": TBD
-  "title": String
+  "id": TBD,
+  "title": String,
   "completed": Boolean
 }
 ```
