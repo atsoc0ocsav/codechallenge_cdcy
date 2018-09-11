@@ -98,10 +98,12 @@ N/A
 ### Operation:
 `PATCH  /todo/:id                  # Update TODO`
 #### Input:
+```json
 {
 	"id": ID,
 	"completed": true
 }
+```
 #### Output:
 ```json
 {
