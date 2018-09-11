@@ -1,6 +1,6 @@
-Once in a while there are code challenges that require to be solved :) here is one of this cases:
+Once in a while there are code challenges that require to be solved 😜 here is one of these cases:
 
-The main challenge is to implement the backend fot a simple todo list.
+The main challenge is to implement the backend for a simple todo list.
 * Use Java with any framework you'd like.
 * The protocol should be JSON over HTTP.
 * Any solution for persistence, as long as it doesn't abstracts SQL.
