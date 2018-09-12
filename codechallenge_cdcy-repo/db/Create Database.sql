@@ -1,0 +1,3 @@
+CREATE DATABASE codechallenge_cdcy;
+CREATE USER cdcy WITH PASSWORD 'QJUkM5I1P0Vec3W4g1NV';
+GRANT ALL PRIVILEGES ON DATABASE "codechallenge_cdcy" to cdcy;

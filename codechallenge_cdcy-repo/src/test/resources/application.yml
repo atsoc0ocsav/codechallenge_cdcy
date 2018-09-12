@@ -1,0 +1,8 @@
+# Hikari
+hikari:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    jdbcUrl: jdbc:postgresql://localhost:5432/codechallenge_cdcy
+    username: cdcy
+    password: QJUkM5I1P0Vec3W4g1NV
+    maximumPoolSize: 5
