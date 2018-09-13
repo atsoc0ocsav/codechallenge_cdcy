@@ -124,7 +124,7 @@ N/A
 	"id": ID
 }
 ```
-=====
+---
 # The solution
 In order to solve the proposed problem, [Spring Boot](http://spring.io/projects/spring-boot) framework was used to implement the server. Additionally they were also used [Spring Data JPA](https://projects.spring.io/spring-data-jpa/) as a clean and logic way to organize the access to the database information (still missing the DTO objects, I know...). Finally, it was also used [HirakiCP](https://github.com/brettwooldridge/HikariCP) which is a high performance JDBC connection pool ready to handle a couple (!) of connections. Of course it is a overkill, but you never now tommorows day!
 
