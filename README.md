@@ -126,7 +126,7 @@ N/A
 ```
 ---
 # The solution
-In order to solve the proposed problem, [Spring Boot](http://spring.io/projects/spring-boot) framework was used to implement the server. Additionally it was used [Spring Data JPA](https://projects.spring.io/spring-data-jpa/) as a clean and logic way to organize the access to the database information (still missing the DTO objects, I know...), and without abstracting SQL. Finally, it was also used [HirakiCP](https://github.com/brettwooldridge/HikariCP) which is a high performance JDBC connection pool ready to handle a couple (!) of connections. Of course it is a overkill, but you never now tommorows day!
+In order to solve the proposed problem, [Spring Boot](http://spring.io/projects/spring-boot) framework was used to implement the server. Additionally it was used [Spring Data JPA](https://projects.spring.io/spring-data-jpa/) as a clean and logic way to organize the access to the database information (still missing the DTO objects, I know...), and without abstracting SQL. Finally, it was also used [HirakiCP](https://github.com/brettwooldridge/HikariCP) which is a high performance JDBC connection pool ready to handle a couple (!) of connections. Of course it is a overkill, but you never now tomorrows day!
 
 For database purposes it was used [PostgreSQL](https://www.postgresql.org) which can pretty much handle the job. Additionally the databases and table creation scripts are included [here](codechallenge_cdcy/tree/master/codechallenge_cdcy-repo/db) so you can configure the database as needed. They can be executed making use of the following command:
 ```sh
