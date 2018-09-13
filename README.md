@@ -133,7 +133,7 @@ For database purposes it was used [PostgreSQL](https://www.postgresql.org) which
 psql -U postgres -a -f "codechallenge_cdcy-repo\db\Create Database.sql"
 psql -U postgres -d codechallenge_cdcy -a -f "codechallenge_cdcy-repo\db\Create Database.sql"
 ```
-For the test script... well it is the same command!
+For the test script... well it is the same command with some minor changes!
 
 Finally, the project was developed using Maven, so it should execution should be pretty straight forward.
 For the lazy ones:
