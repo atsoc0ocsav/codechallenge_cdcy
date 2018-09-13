@@ -136,7 +136,7 @@ psql -U postgres -d codechallenge_cdcy -a -f "codechallenge_cdcy-repo\db\Create 
 For the test script... well it is the same command!
 
 Finally, the project was developed using Maven, so it should execution should be pretty straight forward.
-For the lazy ones 
+For the lazy ones:
 ```sh
 cd codechallenge_cdcy-web
 mvn complile
