@@ -22,6 +22,6 @@ spring:
     properties.hibernate:
       show_sql: true
       format_sql: false
-      use_sql: true
+      use_sql: false
       temp:
           use_jdbc_metadata_defaults: false

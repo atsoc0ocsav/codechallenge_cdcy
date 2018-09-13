@@ -122,9 +122,6 @@ public class TodoRepositoryTest {
 
 		List<Todo> lst = todoRepository.findAll();
 
-		System.out.println("Size lst: " + lst.size());
-		System.out.println("Size original: " + original.size());
-
 		// Check if it is returning just what is supposed to
 		assertEquals(lst.size(), original.size());
 
