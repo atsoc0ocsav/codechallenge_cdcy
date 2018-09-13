@@ -18,8 +18,7 @@ public class Todo implements TodoMinimal, Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-
+	private static final long serialVersionUID = 5254298156727374177L;
 	private Long id;
 	private String title;
 	private boolean isCompleted;
@@ -41,7 +40,11 @@ public class Todo implements TodoMinimal, Serializable {
 		return id;
 	}
 
-	@Column(name = "title", nullable = true, length = 250, unique = true)
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@Column(name = "title", nullable = true, length = 250, unique = false)
 	public String getTitle() {
 		return title;
 	}
@@ -57,5 +60,16 @@ public class Todo implements TodoMinimal, Serializable {
 
 	public void setCompleted(boolean isCompleted) {
 		this.isCompleted = isCompleted;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Todo) {
+			Todo todo = (Todo) obj;
+			return this.title.equals(todo.getTitle()) && this.isCompleted == todo.isCompleted()
+					&& this.id == todo.getId();
+		} else {
+			return false;
+		}
 	}
 }

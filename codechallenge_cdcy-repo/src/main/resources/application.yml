@@ -1,8 +1,27 @@
-# Hikari
-hikari:
+spring:
+  profile: default
   datasource:
-    driverClassName: org.postgresql.Driver
-    jdbcUrl: jdbc:postgresql://localhost:5432/codechallenge_cdcy
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/codechallenge_cdcy
     username: cdcy
     password: QJUkM5I1P0Vec3W4g1NV
-    maximumPoolSize: 5
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 5
+      idle-timeout: 10000
+      poolName: SpringBootJPAHikariCP
+      maxLifetime: 2000000
+      connectionTimeout: 30000
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    hibernate:
+      connection.provider_class: org.hibernate.hikaricp.internal.HikariCPConnectionProvider
+      
+      # https://stackoverflow.com/a/42147995
+      ddl-auto: none
+    properties.hibernate:
+      show_sql: true
+      format_sql: false
+      use_sql: true
+      temp:
+          use_jdbc_metadata_defaults: false

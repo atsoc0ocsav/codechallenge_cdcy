@@ -12,7 +12,7 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
-@ConfigurationProperties(prefix = "hikari.datasource")
+@ConfigurationProperties(prefix = "spring.datasource")
 public class JpaHikariConfig extends HikariConfig {
 
 	@Bean
