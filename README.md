@@ -139,6 +139,7 @@ For the test script... well it is the same command with some minor changes!
 Finally, the project was developed using Maven, so it should execution should be pretty straight forward.
 For the lazy ones:
 ```sh
+mvn clean install
 cd codechallenge_cdcy-web
-mvn complile
+mvn spring-boot:run
 ```
