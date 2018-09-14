@@ -21,9 +21,8 @@
 		<java.version>1.8</java.version>
 
 		<!-- dependencies versions -->
-		<postgresql.version>9.4.1208-jdbc42-atlassian-hosted</postgresql.version>
-		<postgresqlorg.version>42.2.5</postgresqlorg.version>
-		<modelmapper.version>1.1.2</modelmapper.version>
+		<postgresql.version>42.2.5</postgresql.version>
+		<modelmapper.version>2.1.1</modelmapper.version>
 		<hikaricp.version>3.1.0</hikaricp.version>
 	</properties>
 
@@ -62,14 +61,14 @@
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>postgresql</groupId>
-				<artifactId>postgresql</artifactId>
-				<version>${postgresql.version}</version>
+				<groupId>com.atsoc0ocsav</groupId>
+				<artifactId>codechallenge_cdcy-dto</artifactId>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.postgresql</groupId>
 				<artifactId>postgresql</artifactId>
-				<version>${postgresqlorg.version}</version>
+				<version>${postgresql.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.modelmapper</groupId>
@@ -84,18 +83,11 @@
 		</dependencies>
 	</dependencyManagement>
 
-	<repositories>
-		<repository>
-			<id>atlassian</id>
-			<name>Atlassian 3RD Party</name>
-			<url>https://maven.atlassian.com/3rdparty/</url>
-		</repository>
-	</repositories>
-
 	<modules>
 		<module>codechallenge_cdcy-model</module>
 		<module>codechallenge_cdcy-repo</module>
 		<module>codechallenge_cdcy-service</module>
 		<module>codechallenge_cdcy-web</module>
+		<module>codechallenge_cdcy-dto</module>
 	</modules>
 </project>

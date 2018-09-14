@@ -17,6 +17,10 @@
 			<artifactId>codechallenge_cdcy-repo</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.atsoc0ocsav</groupId>
+			<artifactId>codechallenge_cdcy-dto</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
 		</dependency>

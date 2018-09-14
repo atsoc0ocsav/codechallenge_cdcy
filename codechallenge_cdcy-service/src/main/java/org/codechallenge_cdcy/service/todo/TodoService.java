@@ -1,23 +1,20 @@
 package org.codechallenge_cdcy.service.todo;
 
-import org.codechallenge_cdcy.model.Todo;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import java.util.List;
+
+import org.codechallenge_cdcy.dto.TodoDto;
+import org.codechallenge_cdcy.exceptions.TodoException;
 
 public interface TodoService {
-	Page<Todo> findAll(PageRequest pageRequest);
+	List<TodoDto> findAll();
 
-	Page<Todo> findAllCompleted(boolean completed, PageRequest pageRequest);
+	List<TodoDto> findAllCompleted(boolean completed);
 
-	Page<Todo> findAll(String search, PageRequest pageRequest);
+	Long delete(Long id) throws TodoException;
 
-	Long delete(Long id);
+	TodoDto findById(Long id) throws TodoException;
 
-	Todo findById(Long id);
+	TodoDto updateTodo(TodoDto todoDto) throws TodoException;
 
-	Todo updateTodo(Long id, String title);
-
-	Todo updateTodo(Long id, boolean completed);
-
-	Todo addTodo(String title, boolean completed);
+	TodoDto addTodo(TodoDto todoDto);
 }

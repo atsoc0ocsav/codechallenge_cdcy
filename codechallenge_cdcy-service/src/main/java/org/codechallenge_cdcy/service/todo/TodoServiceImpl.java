@@ -1,80 +1,96 @@
 package org.codechallenge_cdcy.service.todo;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Optional;
+
+import org.codechallenge_cdcy.dto.TodoDto;
+import org.codechallenge_cdcy.exceptions.TodoException;
 import org.codechallenge_cdcy.model.Todo;
 import org.codechallenge_cdcy.repo.TodoRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 
 public class TodoServiceImpl implements TodoService {
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
 	@Autowired
 	private TodoRepository todoRepository;
 
+	@Autowired
+	private ModelMapper modelMapper;
+
 	@Override
-	public Page<Todo> findAll(PageRequest pageRequest) {
-		return todoRepository.findAll(pageRequest);
+	public List<TodoDto> findAll() {
+		List<Todo> result = todoRepository.findAll();
+		List<TodoDto> lst = new LinkedList<>();
+		for (Todo todo : result) {
+			TodoDto todoDto = modelMapper.map(todo, TodoDto.class);
+			lst.add(todoDto);
+		}
+
+		return lst;
 	}
 
 	@Override
-	public Page<Todo> findAllCompleted(boolean completed, PageRequest pageRequest) {
-		return todoRepository.findByCompleted(completed, pageRequest);
+	public List<TodoDto> findAllCompleted(boolean completed) {
+		List<Todo> result = todoRepository.findAll();
+		List<TodoDto> lst = new LinkedList<>();
+		for (Todo todo : result) {
+			TodoDto todoDto = modelMapper.map(todo, TodoDto.class);
+			lst.add(todoDto);
+		}
+
+		return lst;
 	}
 
 	@Override
-	public Page<Todo> findAll(String search, PageRequest pageRequest) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Long delete(Long id) throws TodoException {
+		Optional<Todo> todo = todoRepository.findById(id);
 
-	@Override
-	public Long delete(Long id) {
-		try {
-			Todo todo = todoRepository.getOne(id);
-			Long todo_id = todo.getId();
-			todoRepository.delete(todo);
+		if (todo.isPresent()) {
+			Long todo_id = todo.get().getId();
+			todoRepository.delete(todo.get());
 			return todo_id;
-		} catch (Exception e) {
-			logger.debug(e.getMessage());
-		}
-		return -1L;
-	}
-
-	@Override
-	public Todo findById(Long id) {
-		return todoRepository.getOne(id);
-	}
-
-	@Override
-	public Todo updateTodo(Long id, String title) {
-		Todo todo = todoRepository.getOne(id);
-
-		if (todo == null) {
-			return null;
 		} else {
-			todo.setTitle(title);
-			return todoRepository.save(todo);
+			throw new TodoException("Unable to find todo with id=" + id);
 		}
 	}
 
 	@Override
-	public Todo updateTodo(Long id, boolean completed) {
-		Todo todo = todoRepository.getOne(id);
+	public TodoDto findById(Long id) throws TodoException {
+		Optional<Todo> todo = this.todoRepository.findById(id);
 
-		if (todo == null) {
-			return null;
+		if (todo.isPresent()) {
+			TodoDto dto = modelMapper.map(todo, TodoDto.class);
+			return dto;
 		} else {
-			todo.setCompleted(completed);
-			return todoRepository.save(todo);
+			throw new TodoException("Unable to find todo with id=" + id);
 		}
 	}
 
 	@Override
-	public Todo addTodo(String title, boolean completed) {
-		Todo todo = new Todo(title, completed);
-		return todoRepository.save(todo);
+	public TodoDto updateTodo(TodoDto todoDto) throws TodoException {
+		Optional<Todo> todoOpt = todoRepository.findById(todoDto.getId());
+
+		if (todoOpt.isPresent()) {
+			Todo todo = todoOpt.get();
+			if (todoDto.getTitle() != null) {
+				todo.setTitle(todoDto.getTitle());
+			}
+
+			if (todoDto.isCompleted() != null) {
+				todo.setCompleted(todoDto.isCompleted());
+			}
+
+			TodoDto toReturn = modelMapper.map(todoRepository.save(todo), TodoDto.class);
+			return toReturn;
+		} else {
+			throw new TodoException("Unable to find todo with id=" + todoDto.getId());
+		}
+	}
+
+	@Override
+	public TodoDto addTodo(TodoDto todoDto) {
+		Todo todo = new Todo(todoDto.getTitle(), todoDto.isCompleted());
+		return modelMapper.map(todoRepository.save(todo), TodoDto.class);
 	}
 }
