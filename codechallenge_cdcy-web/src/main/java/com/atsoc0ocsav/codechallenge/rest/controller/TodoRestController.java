@@ -36,7 +36,7 @@ public class TodoRestController {
 		}
 	}
 
-	@RequestMapping(value = { "" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "" }, method = RequestMethod.PUT)
 	public TodoDto createTodo(@RequestBody TodoDto todo, HttpServletRequest request) throws Exception {
 		return todoService.addTodo(todo);
 	}
