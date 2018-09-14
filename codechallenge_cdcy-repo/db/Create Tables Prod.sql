@@ -7,7 +7,7 @@ CREATE SEQUENCE public.todo_id_seq
   START 7
   CACHE 1;
 ALTER TABLE public.todo_id_seq
-  OWNER TO cdcy_test;
+  OWNER TO cdcy;
   
 
 -- Table: public.Todo
@@ -23,4 +23,4 @@ WITH (
   OIDS=FALSE
 );
 ALTER TABLE public.Todo
-  OWNER TO cdcy_test;
+  OWNER TO cdcy;
