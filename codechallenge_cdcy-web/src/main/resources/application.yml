@@ -10,7 +10,7 @@ spring:
       maxFileSize: 10MB   
   datasource:
       type: com.zaxxer.hikari.HikariDataSource
-      url: jdbc:postgresql://localhost:5432/codechallenge_cdcy
+      jdbcUrl: jdbc:postgresql://localhost:5432/codechallenge_cdcy
       username: cdcy
       password: QJUkM5I1P0Vec3W4g1NV
       hikari:

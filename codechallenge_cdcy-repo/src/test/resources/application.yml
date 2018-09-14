@@ -2,7 +2,7 @@ spring:
   profile: default
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/codechallenge_cdcy_test
+    jdbcUrl: jdbc:postgresql://localhost:5432/codechallenge_cdcy_test
     username: cdcy_test
     password: xruiI45V7nhnDqj6zRZc
     hikari:
