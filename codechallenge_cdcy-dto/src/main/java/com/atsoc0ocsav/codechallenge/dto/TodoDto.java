@@ -1,10 +1,22 @@
 package com.atsoc0ocsav.codechallenge.dto;
 
-public class TodoDto {
+import java.io.Serializable;
 
+public class TodoDto implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3206050683749775611L;
 	private Long id;
 	private String title;
 	private Boolean isCompleted;
+
+	public TodoDto() {
+		this.id = null;
+		this.title = null;
+		this.isCompleted = null;
+	}
 
 	public TodoDto(Long id) {
 		this.id = id;
