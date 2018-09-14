@@ -27,7 +27,8 @@ public class Todo implements TodoMinimal, Serializable {
 	}
 
 	public Todo(String title, boolean isCompleted) {
-
+		this.title=title;
+		this.isCompleted=isCompleted;
 	}
 
 	@Id

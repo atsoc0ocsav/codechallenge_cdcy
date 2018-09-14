@@ -65,9 +65,9 @@ public class TodoServiceImpl implements TodoService {
 
 		if (todo != null) {
 			try {
-			TodoDto dto = modelMapper.map(todo, TodoDto.class);
-			return dto;
-			}catch(EntityNotFoundException e) {
+				TodoDto dto = modelMapper.map(todo, TodoDto.class);
+				return dto;
+			} catch (EntityNotFoundException e) {
 				throw new TodoException(e.getMessage());
 			}
 		} else {
@@ -98,10 +98,6 @@ public class TodoServiceImpl implements TodoService {
 	@Override
 	public TodoDto addTodo(TodoDto todoDto) {
 		Todo todo = new Todo(todoDto.getTitle(), todoDto.isCompleted());
-		todo = todoRepository.save(todo);
-		
-		TodoDto toReturnDto = new TodoDto(todo.getId(),todo.getTitle(),todo.isCompleted());
-		//return modelMapper.map(todo, TodoDto.class);
-		return toReturnDto;
+		return modelMapper.map(todoRepository.save(todo), TodoDto.class);
 	}
 }

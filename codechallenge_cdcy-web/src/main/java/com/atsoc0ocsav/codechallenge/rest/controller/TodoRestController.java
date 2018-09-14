@@ -38,17 +38,7 @@ public class TodoRestController {
 
 	@RequestMapping(value = { "" }, method = RequestMethod.POST)
 	public TodoDto createTodo(@RequestBody TodoDto todo, HttpServletRequest request) throws Exception {
-		// TODO
-		System.out.println("Is todo null: " + todo == null);
-		System.out.println("Todo title: " + todo.getTitle());
-		System.out.println("Todo isCompleted: " + todo.isCompleted());
-
-		TodoDto teste = todoService.addTodo(todo);
-		System.out.println("New Is todo null: " + teste == null);
-		System.out.println("New Todo title: " + teste.getTitle());
-		System.out.println("New Todo isCompleted: " + teste.isCompleted());
-
-		return teste;
+		return todoService.addTodo(todo);
 	}
 
 	@RequestMapping(value = { "todo/:{id:[\\d]+}" }, method = RequestMethod.GET)
