@@ -131,10 +131,10 @@ Finally, it was also used [HirakiCP](https://github.com/brettwooldridge/HikariCP
 
 For database purposes it was used [PostgreSQL](https://www.postgresql.org) which can pretty much handle the job. Additionally the database and table creation scripts are included [here](codechallenge_cdcy-repo/db), for you to be able to easily configure the database as needed. They can be executed making use of the following command:
 ```sh
-psql -U postgres -a -f "codechallenge_cdcy-repo\db\Create Database.sql"
-psql -U postgres -d codechallenge_cdcy -a -f "codechallenge_cdcy-repo\db\Create Database.sql"
+psql -U postgres -a -f "codechallenge_cdcy-repo\db\Create Database Prod.sql"
+psql -U postgres -d codechallenge_cdcy -a -f "codechallenge_cdcy-repo\db\Create Tables Prod.sql"
 ```
-For the test script... well it is the same command with some minor changes!
+For the test database... well it is the same command with some minor changes!
 
 Finally, the project was developed using Maven, so it should execution should be pretty straight forward.
 For the lazy ones:
