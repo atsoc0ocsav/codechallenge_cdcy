@@ -126,9 +126,10 @@ N/A
 ```
 ---
 # The solution
-In order to solve the proposed problem, [Spring Boot](http://spring.io/projects/spring-boot) framework was used to implement the server. Additionally it was used [Spring Data JPA](https://projects.spring.io/spring-data-jpa/) as a clean and logic way to organize the access to the database information (still missing the DTO objects, I know...), and without abstracting SQL. Finally, it was also used [HirakiCP](https://github.com/brettwooldridge/HikariCP) which is a high performance JDBC connection pool ready to handle a couple (!) of connections. Of course it is a overkill, but you never now tomorrows day!
+In order to solve the proposed problem, [Spring Boot](http://spring.io/projects/spring-boot) framework was used to implement the server. Additionally it was used [Spring Data JPA](https://projects.spring.io/spring-data-jpa/) as a clean and logic way to organize the access to the database information and manage data across  the application, and without abstracting SQL. With JPA was also the necessity  to use [ModelMapper](http://modelmapper.org/) to map the DTO objects to the domain classes.
+Finally, it was also used [HirakiCP](https://github.com/brettwooldridge/HikariCP) which is a high performance JDBC connection pool ready to handle a couple (!) of connections. Of course, it is an overkill, but you never now tomorrows day!
 
-For database purposes it was used [PostgreSQL](https://www.postgresql.org) which can pretty much handle the job. Additionally the database and table creation scripts are included [here](codechallenge_cdcy-repo/db), for you to be able to easely configure the database as needed. They can be executed making use of the following command:
+For database purposes it was used [PostgreSQL](https://www.postgresql.org) which can pretty much handle the job. Additionally the database and table creation scripts are included [here](codechallenge_cdcy-repo/db), for you to be able to easily configure the database as needed. They can be executed making use of the following command:
 ```sh
 psql -U postgres -a -f "codechallenge_cdcy-repo\db\Create Database.sql"
 psql -U postgres -d codechallenge_cdcy -a -f "codechallenge_cdcy-repo\db\Create Database.sql"
